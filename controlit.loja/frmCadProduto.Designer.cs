@@ -32,7 +32,6 @@ namespace controlit.loja
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.txtcodProduto = new System.Windows.Forms.TextBox();
             this.txtnomeProduto = new System.Windows.Forms.TextBox();
             this.txtprecoVenda = new System.Windows.Forms.TextBox();
             this.txtlocalizacao = new System.Windows.Forms.TextBox();
@@ -58,8 +57,11 @@ namespace controlit.loja
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
+            this.mtbCodProd = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -79,6 +81,7 @@ namespace controlit.loja
             this.button2.TabIndex = 1;
             this.button2.Text = "Alterar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -89,40 +92,35 @@ namespace controlit.loja
             this.button3.Text = "Excluir";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // txtcodProduto
-            // 
-            this.txtcodProduto.Location = new System.Drawing.Point(108, 70);
-            this.txtcodProduto.Name = "txtcodProduto";
-            this.txtcodProduto.Size = new System.Drawing.Size(73, 20);
-            this.txtcodProduto.TabIndex = 3;
-            // 
             // txtnomeProduto
             // 
             this.txtnomeProduto.Location = new System.Drawing.Point(108, 96);
             this.txtnomeProduto.Name = "txtnomeProduto";
             this.txtnomeProduto.Size = new System.Drawing.Size(182, 20);
-            this.txtnomeProduto.TabIndex = 4;
+            this.txtnomeProduto.TabIndex = 2;
             // 
             // txtprecoVenda
             // 
             this.txtprecoVenda.Location = new System.Drawing.Point(108, 122);
             this.txtprecoVenda.Name = "txtprecoVenda";
             this.txtprecoVenda.Size = new System.Drawing.Size(73, 20);
-            this.txtprecoVenda.TabIndex = 5;
+            this.txtprecoVenda.TabIndex = 3;
+            this.txtprecoVenda.TextChanged += new System.EventHandler(this.txtprecoVenda_TextChanged);
             // 
             // txtlocalizacao
             // 
             this.txtlocalizacao.Location = new System.Drawing.Point(108, 148);
             this.txtlocalizacao.Name = "txtlocalizacao";
             this.txtlocalizacao.Size = new System.Drawing.Size(73, 20);
-            this.txtlocalizacao.TabIndex = 6;
+            this.txtlocalizacao.TabIndex = 4;
+            this.txtlocalizacao.TextChanged += new System.EventHandler(this.txtlocalizacao_TextChanged);
             // 
             // txtfornecedor
             // 
             this.txtfornecedor.Location = new System.Drawing.Point(108, 173);
             this.txtfornecedor.Name = "txtfornecedor";
             this.txtfornecedor.Size = new System.Drawing.Size(159, 20);
-            this.txtfornecedor.TabIndex = 7;
+            this.txtfornecedor.TabIndex = 5;
             // 
             // label1
             // 
@@ -183,7 +181,7 @@ namespace controlit.loja
             this.txtvalorUltimaCompra.Location = new System.Drawing.Point(108, 225);
             this.txtvalorUltimaCompra.Name = "txtvalorUltimaCompra";
             this.txtvalorUltimaCompra.Size = new System.Drawing.Size(73, 20);
-            this.txtvalorUltimaCompra.TabIndex = 14;
+            this.txtvalorUltimaCompra.TabIndex = 7;
             // 
             // label7
             // 
@@ -200,7 +198,7 @@ namespace controlit.loja
             this.DataUltimaCompra.Location = new System.Drawing.Point(108, 199);
             this.DataUltimaCompra.Name = "DataUltimaCompra";
             this.DataUltimaCompra.Size = new System.Drawing.Size(103, 20);
-            this.DataUltimaCompra.TabIndex = 16;
+            this.DataUltimaCompra.TabIndex = 6;
             // 
             // label8
             // 
@@ -216,7 +214,7 @@ namespace controlit.loja
             this.textBox7.Location = new System.Drawing.Point(358, 70);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(94, 20);
-            this.textBox7.TabIndex = 18;
+            this.textBox7.TabIndex = 0;
             // 
             // button4
             // 
@@ -251,6 +249,7 @@ namespace controlit.loja
             this.button5.TabIndex = 21;
             this.button5.Text = "Gravar";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -281,7 +280,7 @@ namespace controlit.loja
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(462, 109);
-            this.dgvProdutos.TabIndex = 23;
+            this.dgvProdutos.TabIndex = 0;
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
             this.dgvProdutos.SelectionChanged += new System.EventHandler(this.dgvProdutos_SelectionChanged);
             // 
@@ -314,12 +313,32 @@ namespace controlit.loja
             this.label9.Text = "label9";
             this.label9.Visible = false;
             // 
+            // mtbCodProd
+            // 
+            this.mtbCodProd.Location = new System.Drawing.Point(108, 71);
+            this.mtbCodProd.Mask = "0000000000";
+            this.mtbCodProd.Name = "mtbCodProd";
+            this.mtbCodProd.Size = new System.Drawing.Size(80, 20);
+            this.mtbCodProd.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::controlit.loja.Properties.Resources.git;
+            this.pictureBox1.Location = new System.Drawing.Point(335, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(139, 71);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmCadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(484, 394);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.mtbCodProd);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvProdutos);
             this.Controls.Add(this.button6);
@@ -341,7 +360,6 @@ namespace controlit.loja
             this.Controls.Add(this.txtlocalizacao);
             this.Controls.Add(this.txtprecoVenda);
             this.Controls.Add(this.txtnomeProduto);
-            this.Controls.Add(this.txtcodProduto);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -351,6 +369,7 @@ namespace controlit.loja
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,7 +380,6 @@ namespace controlit.loja
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox txtcodProduto;
         private System.Windows.Forms.TextBox txtnomeProduto;
         private System.Windows.Forms.TextBox txtprecoVenda;
         private System.Windows.Forms.TextBox txtlocalizacao;
@@ -387,6 +405,8 @@ namespace controlit.loja
         private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fornecedor;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox mtbCodProd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
