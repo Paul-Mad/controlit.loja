@@ -29,11 +29,10 @@ namespace controlit.loja
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.txtnomeProduto = new System.Windows.Forms.TextBox();
-            this.txtprecoVenda = new System.Windows.Forms.TextBox();
             this.txtlocalizacao = new System.Windows.Forms.TextBox();
             this.txtfornecedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,77 +49,71 @@ namespace controlit.loja
             this.button4 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.mtbCodProd = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtprecoVenda = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnNovo
             // 
-            this.button1.Location = new System.Drawing.Point(11, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Novo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNovo.Location = new System.Drawing.Point(11, 28);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 23);
+            this.btnNovo.TabIndex = 0;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // button2
+            // btnAlterar
             // 
-            this.button2.Location = new System.Drawing.Point(92, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Alterar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnAlterar.Location = new System.Drawing.Point(92, 28);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
-            // button3
+            // btnExcluir
             // 
-            this.button3.Location = new System.Drawing.Point(173, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Excluir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnExcluir.Location = new System.Drawing.Point(173, 28);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 2;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // txtnomeProduto
             // 
             this.txtnomeProduto.Location = new System.Drawing.Point(108, 96);
             this.txtnomeProduto.Name = "txtnomeProduto";
             this.txtnomeProduto.Size = new System.Drawing.Size(182, 20);
-            this.txtnomeProduto.TabIndex = 2;
-            // 
-            // txtprecoVenda
-            // 
-            this.txtprecoVenda.Location = new System.Drawing.Point(108, 122);
-            this.txtprecoVenda.Name = "txtprecoVenda";
-            this.txtprecoVenda.Size = new System.Drawing.Size(73, 20);
-            this.txtprecoVenda.TabIndex = 3;
-            this.txtprecoVenda.TextChanged += new System.EventHandler(this.txtprecoVenda_TextChanged);
+            this.txtnomeProduto.TabIndex = 4;
             // 
             // txtlocalizacao
             // 
             this.txtlocalizacao.Location = new System.Drawing.Point(108, 148);
             this.txtlocalizacao.Name = "txtlocalizacao";
             this.txtlocalizacao.Size = new System.Drawing.Size(73, 20);
-            this.txtlocalizacao.TabIndex = 4;
-            this.txtlocalizacao.TextChanged += new System.EventHandler(this.txtlocalizacao_TextChanged);
+            this.txtlocalizacao.TabIndex = 6;
             // 
             // txtfornecedor
             // 
             this.txtfornecedor.Location = new System.Drawing.Point(108, 173);
             this.txtfornecedor.Name = "txtfornecedor";
             this.txtfornecedor.Size = new System.Drawing.Size(159, 20);
-            this.txtfornecedor.TabIndex = 5;
+            this.txtfornecedor.TabIndex = 7;
             // 
             // label1
             // 
@@ -181,7 +174,7 @@ namespace controlit.loja
             this.txtvalorUltimaCompra.Location = new System.Drawing.Point(108, 225);
             this.txtvalorUltimaCompra.Name = "txtvalorUltimaCompra";
             this.txtvalorUltimaCompra.Size = new System.Drawing.Size(73, 20);
-            this.txtvalorUltimaCompra.TabIndex = 7;
+            this.txtvalorUltimaCompra.TabIndex = 9;
             // 
             // label7
             // 
@@ -198,7 +191,7 @@ namespace controlit.loja
             this.DataUltimaCompra.Location = new System.Drawing.Point(108, 199);
             this.DataUltimaCompra.Name = "DataUltimaCompra";
             this.DataUltimaCompra.Size = new System.Drawing.Size(103, 20);
-            this.DataUltimaCompra.TabIndex = 6;
+            this.DataUltimaCompra.TabIndex = 8;
             // 
             // label8
             // 
@@ -214,7 +207,7 @@ namespace controlit.loja
             this.textBox7.Location = new System.Drawing.Point(358, 70);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(94, 20);
-            this.textBox7.TabIndex = 0;
+            this.textBox7.TabIndex = 10;
             // 
             // button4
             // 
@@ -237,28 +230,30 @@ namespace controlit.loja
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // button5
+            // btnGravar
             // 
-            this.button5.Location = new System.Drawing.Point(316, 28);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Gravar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnGravar.Location = new System.Drawing.Point(316, 28);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 11;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
-            // button6
+            // btnCancelar
             // 
-            this.button6.Location = new System.Drawing.Point(397, 28);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Cancelar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(397, 28);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dgvProdutos
             // 
@@ -280,28 +275,9 @@ namespace controlit.loja
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProdutos.Size = new System.Drawing.Size(462, 109);
-            this.dgvProdutos.TabIndex = 0;
+            this.dgvProdutos.TabIndex = 13;
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
             this.dgvProdutos.SelectionChanged += new System.EventHandler(this.dgvProdutos_SelectionChanged);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Cod Produto";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // NomeProduto
-            // 
-            this.NomeProduto.HeaderText = "Nome Produto";
-            this.NomeProduto.Name = "NomeProduto";
-            this.NomeProduto.ReadOnly = true;
-            // 
-            // Fornecedor
-            // 
-            this.Fornecedor.HeaderText = "Fornecedor";
-            this.Fornecedor.Name = "Fornecedor";
-            this.Fornecedor.ReadOnly = true;
-            this.Fornecedor.ToolTipText = "Nome do Fornecedor";
             // 
             // label9
             // 
@@ -319,7 +295,7 @@ namespace controlit.loja
             this.mtbCodProd.Mask = "0000000000";
             this.mtbCodProd.Name = "mtbCodProd";
             this.mtbCodProd.Size = new System.Drawing.Size(80, 20);
-            this.mtbCodProd.TabIndex = 1;
+            this.mtbCodProd.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -331,18 +307,48 @@ namespace controlit.loja
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Cod Produto";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 150;
+            // 
+            // NomeProduto
+            // 
+            this.NomeProduto.HeaderText = "Nome Produto";
+            this.NomeProduto.Name = "NomeProduto";
+            this.NomeProduto.ReadOnly = true;
+            this.NomeProduto.Width = 150;
+            // 
+            // Fornecedor
+            // 
+            this.Fornecedor.HeaderText = "Fornecedor";
+            this.Fornecedor.Name = "Fornecedor";
+            this.Fornecedor.ReadOnly = true;
+            this.Fornecedor.ToolTipText = "Nome do Fornecedor";
+            this.Fornecedor.Width = 150;
+            // 
+            // txtprecoVenda
+            // 
+            this.txtprecoVenda.Location = new System.Drawing.Point(108, 122);
+            this.txtprecoVenda.Name = "txtprecoVenda";
+            this.txtprecoVenda.Size = new System.Drawing.Size(100, 20);
+            this.txtprecoVenda.TabIndex = 5;
+            // 
             // frmCadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(484, 394);
+            this.Controls.Add(this.txtprecoVenda);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mtbCodProd);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dgvProdutos);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox7);
@@ -358,11 +364,10 @@ namespace controlit.loja
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtfornecedor);
             this.Controls.Add(this.txtlocalizacao);
-            this.Controls.Add(this.txtprecoVenda);
             this.Controls.Add(this.txtnomeProduto);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnNovo);
             this.Name = "frmCadProduto";
             this.Text = "Cadastro de Produto";
             this.Load += new System.EventHandler(this.frmCadProduto_Load);
@@ -377,11 +382,10 @@ namespace controlit.loja
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.TextBox txtnomeProduto;
-        private System.Windows.Forms.TextBox txtprecoVenda;
         private System.Windows.Forms.TextBox txtlocalizacao;
         private System.Windows.Forms.TextBox txtfornecedor;
         private System.Windows.Forms.Label label1;
@@ -398,15 +402,16 @@ namespace controlit.loja
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvProdutos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fornecedor;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox mtbCodProd;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeProduto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fornecedor;
+        private System.Windows.Forms.TextBox txtprecoVenda;
     }
 }
 
