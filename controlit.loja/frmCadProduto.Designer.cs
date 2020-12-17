@@ -52,12 +52,12 @@ namespace controlit.loja
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mtbCodProd = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomeProduto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fornecedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mtbCodProd = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtprecoVenda = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -279,6 +279,28 @@ namespace controlit.loja
             this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
             this.dgvProdutos.SelectionChanged += new System.EventHandler(this.dgvProdutos_SelectionChanged);
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Cod Produto";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 150;
+            // 
+            // NomeProduto
+            // 
+            this.NomeProduto.HeaderText = "Nome Produto";
+            this.NomeProduto.Name = "NomeProduto";
+            this.NomeProduto.ReadOnly = true;
+            this.NomeProduto.Width = 150;
+            // 
+            // Fornecedor
+            // 
+            this.Fornecedor.HeaderText = "Fornecedor";
+            this.Fornecedor.Name = "Fornecedor";
+            this.Fornecedor.ReadOnly = true;
+            this.Fornecedor.ToolTipText = "Nome do Fornecedor";
+            this.Fornecedor.Width = 150;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -306,28 +328,6 @@ namespace controlit.loja
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Cod Produto";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 150;
-            // 
-            // NomeProduto
-            // 
-            this.NomeProduto.HeaderText = "Nome Produto";
-            this.NomeProduto.Name = "NomeProduto";
-            this.NomeProduto.ReadOnly = true;
-            this.NomeProduto.Width = 150;
-            // 
-            // Fornecedor
-            // 
-            this.Fornecedor.HeaderText = "Fornecedor";
-            this.Fornecedor.Name = "Fornecedor";
-            this.Fornecedor.ReadOnly = true;
-            this.Fornecedor.ToolTipText = "Nome do Fornecedor";
-            this.Fornecedor.Width = 150;
             // 
             // txtprecoVenda
             // 
@@ -370,6 +370,7 @@ namespace controlit.loja
             this.Controls.Add(this.btnNovo);
             this.Name = "frmCadProduto";
             this.Text = "Cadastro de Produto";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCadProduto_FormClosing);
             this.Load += new System.EventHandler(this.frmCadProduto_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

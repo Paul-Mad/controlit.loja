@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace controlit.loja
 {
     public partial class frmCadProduto : Form
-    {   
+    {
         // ------- Declaracao de vetores e variaveis
         string[] aCodProduto = new string[100];
         string[] aNomeProduto = new string[100];
@@ -49,7 +49,7 @@ namespace controlit.loja
             toolStripStatusLabel1.Text = "Incluir novo Produto";
             enable_txtboxes();
             limparCampos();
-            
+
 
 
         }
@@ -65,7 +65,7 @@ namespace controlit.loja
                 //---Pega a linha selecionada no DataGrid
                 int linhadgv = dgvProdutos.CurrentRow.Index + 1;
 
-               
+
                 tratarCampos();
                 if (erro)
                 {
@@ -91,12 +91,12 @@ namespace controlit.loja
                 else
                 {
                     int linhaDgv = dgvProdutos.Rows.Count + 1;
-                    gravarArray(linhaDgv);                    
-                    
+                    gravarArray(linhaDgv);
+
 
                     dgvProdutos.Rows.Add(aCodProduto[linhaDgv], aNomeProduto[linhaDgv], aFornecedor[linhaDgv]);
-                    
-                    
+
+
                     disable_txtboxes();
                     toolStripStatusLabel1.Text = "Produto incluido com Sucesso";
                     modo = "";
@@ -104,7 +104,7 @@ namespace controlit.loja
                     dgvProdutos[0, linhaDgv - 1].Selected = true;
                 }
             }
-            else if (modo == "E")  
+            else if (modo == "E")
             {
                 int linhadgv = dgvProdutos.CurrentRow.Index + 1;
 
@@ -112,14 +112,14 @@ namespace controlit.loja
                 {
                     if (linhadgv <= c)
                     {
-                       
-                        aCodProduto[c] = aCodProduto[c+1];
-                        aNomeProduto[c] = aNomeProduto[c+1];
-                        aPrecoProduto[c] = aPrecoProduto[c+1];
-                        aLocalizacao[c] = aLocalizacao[c+1];
-                        aFornecedor[c] = aFornecedor[c+1];
-                        aDatadaUltCompra[c] = aDatadaUltCompra[c+1];
-                        aVlrUltCompra[c] = aVlrUltCompra[c+1];
+
+                        aCodProduto[c] = aCodProduto[c + 1];
+                        aNomeProduto[c] = aNomeProduto[c + 1];
+                        aPrecoProduto[c] = aPrecoProduto[c + 1];
+                        aLocalizacao[c] = aLocalizacao[c + 1];
+                        aFornecedor[c] = aFornecedor[c + 1];
+                        aDatadaUltCompra[c] = aDatadaUltCompra[c + 1];
+                        aVlrUltCompra[c] = aVlrUltCompra[c + 1];
                     }
                 }
                 modo = "";
@@ -136,9 +136,8 @@ namespace controlit.loja
         private void alteracao()
         {
             enable_txtboxes();
-            atualizaCampos();
-            modo = "A";
-            toolStripStatusLabel1.Text = "Modo de alteração";
+          //  atualizaCampos();
+            
         }
 
         private void exclusao()
@@ -146,10 +145,10 @@ namespace controlit.loja
             modo = "E";
             MessageBox.Show(String.Format("Para confirmar a exclusao de: {0}", txtnomeProduto.Text, "Exclusão de Produto", MessageBoxButtons.OK, MessageBoxIcon.Information));
             toolStripStatusLabel1.Text = "Exclusão de produto";
-            
+
 
         }
-        
+
 
         private void atualizaCampos()
         {
@@ -180,7 +179,7 @@ namespace controlit.loja
             txtvalorUltimaCompra.Clear();
         }
 
-        
+
 
         private void tratarCampos()
         {
@@ -200,18 +199,23 @@ namespace controlit.loja
                 {
                     MessageBox.Show("Valor de venda incorreto");
                     erro = true;
-                    
+                    desabilitaMenu();
+                    alteracao();
+
                     return;
 
                 }
             }
-            
+
 
             //---------Verifica se o valor de venda é menor que o de compra
             if (Convert.ToDecimal(txtprecoVenda.Text) < Convert.ToDecimal(txtvalorUltimaCompra.Text))
             {
-                MessageBox.Show("Valor de Venda nao pode ser menos que o valor de compra !");
+                MessageBox.Show("Valor de Venda nao pode ser menor que o valor de compra !");
                 erro = true;
+                desabilitaMenu();
+                alteracao();
+                
 
 
             }
@@ -219,6 +223,8 @@ namespace controlit.loja
             {
                 MessageBox.Show("O valor nao pode ser vazio");
                 erro = true;
+                desabilitaMenu();
+                alteracao();
             }
             txtlocalizacao.Text = txtlocalizacao.Text.ToUpper();
 
@@ -227,19 +233,21 @@ namespace controlit.loja
             {
                 MessageBox.Show("Localização incompleta ! - Redigite");
                 erro = true;
-                
-                
+                desabilitaMenu();
+                alteracao();
+
+
             }
 
-            
-           
+
+
         }
         //-------Atualiza data grid
         private void gridupdateRow()
         {
             dgvProdutos.Rows.Clear();
 
-            for (int c = 0; c <= aCodProduto.Length -1; c++)
+            for (int c = 0; c <= aCodProduto.Length - 1; c++)
             {
                 if (aCodProduto[c] != null)
                 {
@@ -255,16 +263,42 @@ namespace controlit.loja
         private void gravarArray(int linhadgv)
         {
 
-            aCodProduto[linhadgv] = mtbCodProd.Text;
-            aNomeProduto[linhadgv] = txtnomeProduto.Text;
+            aCodProduto[linhadgv] = string.Format("{0}          ",mtbCodProd.Text).Substring(0,10);
+            aNomeProduto[linhadgv] = string.Format("{0}                    ", txtnomeProduto.Text).Substring(0, 20); 
             aPrecoProduto[linhadgv] = Convert.ToDecimal(txtprecoVenda.Text);
-            aLocalizacao[linhadgv] = txtlocalizacao.Text;
-            aFornecedor[linhadgv] = txtfornecedor.Text; 
+            aLocalizacao[linhadgv] = string.Format("{0}          ", txtlocalizacao.Text).Substring(0, 10); 
+            aFornecedor[linhadgv] = string.Format("{0}               ", txtfornecedor.Text).Substring(0, 15); 
             aDatadaUltCompra[linhadgv] = DataUltimaCompra.Value;
             aVlrUltCompra[linhadgv] = Convert.ToDecimal(txtvalorUltimaCompra.Text);
-            
 
 
+
+        }
+
+        //-------- Grava Arquivo Sequencial
+        private void gravaArqSeq()
+        {
+            StreamWriter vgravador = new StreamWriter(@"c:\temp\Produtos.txt");
+
+            for (int da = 1; da < aCodProduto.Length; da++)
+            {
+                if (aCodProduto[da] != null)
+                {
+
+
+
+                    string linhaDados = "";
+                    linhaDados += aCodProduto[da];
+                    linhaDados += aNomeProduto[da];
+                    linhaDados += String.Format("              {0}", Convert.ToString(aPrecoProduto[da])).Substring(Convert.ToString(aPrecoProduto[da]).Length, 14);
+                    linhaDados += aLocalizacao[da];
+                    linhaDados += aFornecedor[da];
+                    linhaDados += Convert.ToString(aDatadaUltCompra[da]).Substring(0, 10);
+                    linhaDados += String.Format("              {0}", Convert.ToString(aVlrUltCompra[da])).Substring(Convert.ToString(aVlrUltCompra[da]).Length, 14);
+                    vgravador.WriteLine(linhaDados);
+                }
+            }
+            vgravador.Close();
         }
 
         private void habilitaMenu()
@@ -316,6 +350,7 @@ namespace controlit.loja
                 dgvProdutos.Rows.Add(aCodProduto[arrayIndex], aNomeProduto[arrayIndex], aFornecedor[arrayIndex]);
 
             }
+            vLeitor.Close();
 
 
             disable_txtboxes();
@@ -343,19 +378,19 @@ namespace controlit.loja
 
         }
 
-        
 
-        
+
+
 
         private void txtlocalizacao_TextChanged(object sender, EventArgs e)
         {
-           // txtlocalizacao.Text = txtlocalizacao.Text.ToUpper();
+            // txtlocalizacao.Text = txtlocalizacao.Text.ToUpper();
         }
 
         private void txtprecoVenda_TextChanged(object sender, EventArgs e)
         {
 
-           
+
         }
 
 
@@ -363,18 +398,21 @@ namespace controlit.loja
         //--------------------- Botoes
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            modo = "A";
+            toolStripStatusLabel1.Text = "Modo de alteração";
             alteracao();
             //----- desabilita menu de botoes
             desabilitaMenu();
         }
 
-       
+
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            gravacao();
             //------- habilita menu de botoes
             habilitaMenu();
+            gravacao();
+            
 
         }
 
@@ -388,11 +426,11 @@ namespace controlit.loja
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
-        {   
+        {
 
             inclusao();
             desabilitaMenu();
-            
+
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -400,6 +438,14 @@ namespace controlit.loja
             exclusao();
             desabilitaMenu();
         }
-        //-------------------------- fim botoes
-    }   
+
+        private void frmCadProduto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gravaArqSeq();
+        }
+
+
+        
+
+    }
 }
