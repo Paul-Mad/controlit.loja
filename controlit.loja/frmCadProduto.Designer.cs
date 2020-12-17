@@ -45,8 +45,8 @@ namespace controlit.loja
             this.label7 = new System.Windows.Forms.Label();
             this.DataUltimaCompra = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -202,21 +202,22 @@ namespace controlit.loja
             this.label8.TabIndex = 17;
             this.label8.Text = "Pesquisar";
             // 
-            // textBox7
+            // txtPesquisar
             // 
-            this.textBox7.Location = new System.Drawing.Point(358, 70);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(94, 20);
-            this.textBox7.TabIndex = 10;
+            this.txtPesquisar.Location = new System.Drawing.Point(358, 70);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(94, 20);
+            this.txtPesquisar.TabIndex = 10;
             // 
-            // button4
+            // btnPesquisar
             // 
-            this.button4.Location = new System.Drawing.Point(458, 68);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(16, 23);
-            this.button4.TabIndex = 19;
-            this.button4.Text = ">";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Location = new System.Drawing.Point(458, 68);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(16, 23);
+            this.btnPesquisar.TabIndex = 19;
+            this.btnPesquisar.Text = ">";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // statusStrip1
             // 
@@ -259,6 +260,7 @@ namespace controlit.loja
             // 
             this.dgvProdutos.AllowUserToAddRows = false;
             this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.AllowUserToOrderColumns = true;
             this.dgvProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -350,8 +352,8 @@ namespace controlit.loja
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.DataUltimaCompra);
             this.Controls.Add(this.label7);
@@ -399,8 +401,8 @@ namespace controlit.loja
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker DataUltimaCompra;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtPesquisar;
+        private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btnGravar;

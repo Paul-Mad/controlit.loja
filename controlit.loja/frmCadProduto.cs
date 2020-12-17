@@ -149,6 +149,30 @@ namespace controlit.loja
 
         }
 
+        private void pesquisar()
+        {
+
+            for (int i = 1 ; i < aCodProduto.Length - 1; i++)
+            {
+                if (aCodProduto[i] == null || txtPesquisar.Text == "")
+                {
+                    MessageBox.Show("Item nao localizado !", "Não Localizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (txtPesquisar.Text.ToUpper()  == aCodProduto[i].Trim().ToUpper() 
+                    || aNomeProduto[i].Trim().ToUpper().Contains(txtPesquisar.Text.ToUpper()))
+                {
+                    dgvProdutos[0, i - 1].Selected = true;
+                    atualizaCampos();
+                    return;
+                }
+                
+
+            }
+            
+
+        }
+
 
         private void atualizaCampos()
         {
@@ -444,8 +468,9 @@ namespace controlit.loja
             gravaArqSeq();
         }
 
-
-        
-
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            pesquisar();
+        }
     }
 }
